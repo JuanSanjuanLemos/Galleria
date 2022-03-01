@@ -1,0 +1,153 @@
+@use 'variables' as v ;
+@use 'mixins' as m;
+*{
+    font-family: 'Josefin Sans';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: v.$bg-color;
+    color: v.$text-color;
+    a{
+        color: v.$text-color;
+        text-decoration: none;
+        transition: .4s;
+    }
+    ul{
+        list-style: none;
+    }
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    @include m.container;
+
+    @include m.mobile{
+        padding: 1.1rem;
+    }
+    &-brand{
+        color: v.$primary-color;
+        font-size: 3rem;
+    }
+    &-navbar{
+        ul{
+            height: 100%;
+            @include m.flex-center;
+
+            @include m.mobile{
+                display: none;
+            }
+            li{
+                margin: 0 1rem;
+                text-transform: uppercase;
+                font-size: .8rem;
+                .active{
+                    color: v.$secondary-color;
+                }
+                a{
+                    &:hover{
+                        color: v.$secondary-color;
+                    }
+                }
+            }
+        }
+    }
+    &-social-media{
+        ul{
+            @include m.flex-center;
+
+            @include m.mobile{
+                display: none;
+            }
+            height: 100%;
+            li{
+                margin: 0 1rem;
+                a{
+                    &:hover{
+                        color: v.$primary-color;
+                    }
+                }
+            }
+        }      
+    }
+}
+
+.gallery{
+    @include m.flex-center;
+    @include m.container;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include m.mobile{
+        flex-direction: column;
+    }
+    &-card{
+        width: 31%;
+        height: 400px;
+        margin-bottom: 4%;
+        @include m.flex-center;
+        flex-direction: column;
+        color: v.$primary-color;
+
+        @include m.mobile{
+            width: 90%;
+            margin-bottom: 6%;
+        }
+        &-title{
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        &-btn{
+            padding: .6rem 2rem;
+            border: 2px solid v.$primary-color;
+            color: v.$primary-color;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            &:hover{
+                background-color: v.$primary-color;
+                color: v.$bg-color;
+            }
+        }
+    }
+    #card-1{
+        @include m.bg-img('animais.jpg');
+    }
+    #card-2{
+        @include m.bg-img('arquitetura.jpg');
+    }
+    #card-3{
+        @include m.bg-img('cidade.jpg');
+    }
+    #card-4{
+        @include m.bg-img('decoracao.jpg');
+    }
+    #card-5{
+        @include m.bg-img('esportes.jpg');
+    }
+    #card-6{
+        @include m.bg-img('natureza.jpg');
+    }
+    #card-7{
+        @include m.bg-img('paisagem.jpg');
+    }
+    #card-8{
+        @include m.bg-img('pessoas.jpg');
+    }
+    #card-9{
+        @include m.bg-img('refeicoes.jpg');
+    }
+}
+
+footer{
+    text-align: center;
+    padding-bottom: 2rem;
+    span{
+        font-weight: bold;
+        color: v.$secondary-color;
+    }
+}
